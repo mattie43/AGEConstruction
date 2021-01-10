@@ -1,15 +1,41 @@
 import React from "react";
 import styled from "styled-components";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
 
-import workers from "../images/workers.jpg";
-import logo from "../images/logo4.png";
+import logo2 from "../images/logos/logo2.png";
+import img1 from "../images/projects/img1.jpg";
+import img2 from "../images/projects/img2.jpg";
+import img3 from "../images/projects/img3.jpg";
 
 export default function Intro() {
+  const settings = {
+    renderIndicator: false,
+    showStatus: false,
+    showThumbs: false,
+    swipeable: true,
+    emulateTouch: true,
+    infiniteLoop: true,
+    useKeyboardArrows: true,
+    autoPlay: true,
+    interval: 5000,
+  };
+
+  function renderImages() {
+    return [img1, img2, img3].map((img) => (
+      <SingleImage>
+        <img src={img} alt="" />
+      </SingleImage>
+    ));
+  }
+
   return (
     <Container>
       <Body>
-        <img src={workers} alt="" id="workers" />
-        <img src={logo} alt="" id="logo" />
+        <CarouselContainer>
+          <Carousel {...settings}>{renderImages()}</Carousel>
+        </CarouselContainer>
+        <img src={logo2} alt="" id="logo" />
       </Body>
     </Container>
   );
@@ -17,17 +43,33 @@ export default function Intro() {
 
 const Container = styled.div`
   display: flex;
-  background-color: salmon;
-  height: 50vh;
-  clip-path: polygon(0 0, 0 100%, 100% 80%, 100% 0);
+  justify-content: center;
+  height: 93vh;
+  margin-bottom: 4vh;
 `;
 
 const Body = styled.div`
   display: flex;
-  & #workers {
-    max-height: 80%;
-  }
+  align-items: center;
+  justify-content: center;
   & #logo {
-    max-height: 50%;
+    position: absolute;
+    max-height: 30%;
+    top: 15%;
+    left: 5%;
+  }
+`;
+
+const SingleImage = styled.div`
+  & img {
+    max-height: 100%;
+    max-height: 100%;
+  }
+`;
+
+const CarouselContainer = styled.div`
+  & .carousel {
+    height: 93vh;
+    display: flex;
   }
 `;
