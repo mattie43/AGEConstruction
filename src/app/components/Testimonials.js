@@ -15,8 +15,8 @@ export default function Testimonials() {
   };
 
   function renderTestimonials() {
-    return [1, 2, 3].map(() => (
-      <SingleTestimonial>
+    return [1, 2, 3].map((item) => (
+      <SingleTestimonial key={item}>
         <img src="https://www.w3schools.com/howto/img_avatar.png" alt="" />
         <blockquote>
           Adipisicing mollit sint velit exercitation deserunt ex irure sunt
@@ -53,7 +53,7 @@ const CarouselContainer = styled.div`
   display: flex;
   height: 200px;
   width: 75%;
-  transform: translateY(-2vh);
+  transform: translateY(4vh);
   & .carousel {
     height: 200px;
     display: flex;

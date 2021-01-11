@@ -3,7 +3,6 @@ import styled from "styled-components";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 
-import logo2 from "../images/logos/logo2.png";
 import img1 from "../images/projects/img1.jpg";
 import img2 from "../images/projects/img2.jpg";
 import img3 from "../images/projects/img3.jpg";
@@ -23,7 +22,7 @@ export default function Intro() {
 
   function renderImages() {
     return [img1, img2, img3].map((img) => (
-      <SingleImage>
+      <SingleImage key={img}>
         <img src={img} alt="" />
       </SingleImage>
     ));
@@ -31,11 +30,10 @@ export default function Intro() {
 
   return (
     <Container>
-      <Body>
+      <Body id="body">
         <CarouselContainer>
           <Carousel {...settings}>{renderImages()}</Carousel>
         </CarouselContainer>
-        <img src={logo2} alt="" id="logo" />
       </Body>
     </Container>
   );
@@ -44,20 +42,13 @@ export default function Intro() {
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  height: 93vh;
-  margin-bottom: 4vh;
+  height: 100vh;
 `;
 
 const Body = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  & #logo {
-    position: absolute;
-    max-height: 30%;
-    top: 15%;
-    left: 5%;
-  }
 `;
 
 const SingleImage = styled.div`
@@ -69,7 +60,7 @@ const SingleImage = styled.div`
 
 const CarouselContainer = styled.div`
   & .carousel {
-    height: 93vh;
+    height: 100vh;
     display: flex;
   }
 `;

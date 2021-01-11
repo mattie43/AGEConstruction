@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import Intro from "./components/Intro";
 import Testimonials from "./components/Testimonials";
 
-import background from "./images/blueprintback.jpg";
+import background from "./images/blueprint.jpg";
 
 export default function App() {
   return (
