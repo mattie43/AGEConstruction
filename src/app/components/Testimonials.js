@@ -33,6 +33,8 @@ export default function Testimonials() {
 
   return (
     <Container>
+      <h1>What People Are Saying About Us</h1>
+      <br />
       <CarouselContainer>
         <Carousel {...settings}>{renderTestimonials()}</Carousel>
       </CarouselContainer>
@@ -45,10 +47,13 @@ const Container = styled.div`
   flex-direction: column;
   padding: 20px;
   background-color: #855e42;
-  height: 30vh;
+  height: 35vh;
   margin-top: 10vh;
   align-items: center;
   justify-content: center;
+  & h1 {
+    color: white;
+  }
 `;
 
 const CarouselContainer = styled.div`

@@ -17,10 +17,10 @@ export default function Header() {
   });
 
   function checkScroll() {
-    if (window.scrollY === 0) {
-      setTransparent(true);
-    } else {
+    if (window.scrollY > 50) {
       setTransparent(false);
+    } else {
+      setTransparent(true);
     }
   }
 
