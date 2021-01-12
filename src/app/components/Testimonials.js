@@ -12,6 +12,8 @@ export default function Testimonials() {
     emulateTouch: true,
     infiniteLoop: true,
     useKeyboardArrows: true,
+    autoPlay: true,
+    interval: 7000,
   };
 
   function renderTestimonials() {
@@ -42,9 +44,9 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
-  background-color: #efa21f;
-  height: 50vh;
-  clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
+  background-color: #855e42;
+  height: 30vh;
+  margin-top: 10vh;
   align-items: center;
   justify-content: center;
 `;
@@ -53,7 +55,6 @@ const CarouselContainer = styled.div`
   display: flex;
   height: 200px;
   width: 75%;
-  transform: translateY(4vh);
   & .carousel {
     height: 200px;
     display: flex;
@@ -62,7 +63,7 @@ const CarouselContainer = styled.div`
 
 const SingleTestimonial = styled.div`
   display: flex;
-  background-color: #efa21f;
+  background-color: #855e42;
   padding: 0 30px;
   align-items: center;
   & img {
@@ -76,11 +77,10 @@ const SingleTestimonial = styled.div`
     ::before {
       display: block;
       content: "❝";
-      transform: scale(5) translate(-8px, -2px);
+      transform: scale(5) translate(-6px, -2px);
       position: absolute;
     }
     & cite {
-      /* color: #999999; */
       font-size: 14px;
       display: block;
       margin-top: 5px;

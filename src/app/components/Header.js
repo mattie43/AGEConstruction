@@ -72,6 +72,28 @@ const removeImg = keyframes`
   }
 `;
 
+const shrinkWords = keyframes`
+  from {
+    font-size: 35px;
+    margin-top: 10px;
+  }
+  to {
+    font-size: 30px;
+    margin-top: 0;
+  }
+`;
+
+const growWords = keyframes`
+  from {
+    font-size: 30px;
+    margin-top: 0;
+  }
+  to {
+    font-size: 35px
+    margin-top: 10px;
+  }
+`;
+
 const Container = styled.div`
   width: 100%;
   display: flex;
@@ -109,7 +131,11 @@ const Container = styled.div`
     z-index: 6;
     & h3 {
       margin: 0 25px;
-      font-size: 30px;
+      font-size: 35px;
+      /* transform: translateY(10px); */
+      margin-top: 10px;
+      animation: ${(p) => (p.transparent ? growWords : shrinkWords)} 100ms
+        linear forwards;
       letter-spacing: -1px;
     }
   }

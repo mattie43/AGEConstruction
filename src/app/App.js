@@ -3,15 +3,17 @@ import styled from "styled-components";
 
 import Header from "./components/Header";
 import Intro from "./components/Intro";
+import Projects from "./components/Projects";
 import Testimonials from "./components/Testimonials";
 
-import background from "./images/blueprint.jpg";
+import back from "./images/background.jpg";
 
 export default function App() {
   return (
-    <Container back={background}>
+    <Container back={back}>
       <Header />
       <Intro />
+      <Projects />
       <Testimonials />
     </Container>
   );
