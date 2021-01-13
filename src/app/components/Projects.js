@@ -1,53 +1,80 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useEffect, useState } from "react";
+import styled, { keyframes } from "styled-components";
+import { throttle } from "lodash";
+
+import randomNumber from "../helpers/randomNumber";
 
 export default function Projects() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const throttleScroll = throttle(checkScroll, 300);
+    window.addEventListener("scroll", throttleScroll);
+    return () => {
+      window.removeEventListener("scroll", throttleScroll);
+    };
+  });
+
+  function checkScroll() {
+    if (
+      document.querySelector("#projects").getBoundingClientRect().top <
+      window.innerHeight / 2
+    ) {
+      setVisible(true);
+    }
+  }
+
+  function renderProjects() {
+    return [1, 2, 3, 4].map((proj) => (
+      <SingleProject visible={visible} randomNumber={randomNumber(500, 2000)}>
+        <img
+          src="https://makinglemonadeblog.com/wp-content/uploads/2018/09/screened-porch-deck-addition-03.jpg"
+          alt=""
+        />
+        <h3>Deck Addition</h3>
+      </SingleProject>
+    ));
+  }
+
   return (
     <Container>
-      <ProjectsContainer>
-        <div id="proj1">
-          <img
-            src="https://makinglemonadeblog.com/wp-content/uploads/2018/09/screened-porch-deck-addition-03.jpg"
-            alt=""
-          />
-          <h3>Deck Addition</h3>
-        </div>
-        <div id="proj2">
-          <img
-            src="https://lh3.googleusercontent.com/proxy/ySZCgD34jRI8hOH7uCxmhUD-8j1RhH7clqRTlzK2KKlI6PCyZvBlwQtymaFxMFKcql-MNr-qiB7swTuFGu-uh4cm-xCZuB0FgKb_Hsl2zM4AqtxPHiGUAACINSrDxB-J93fEs3SRN0Rn"
-            alt=""
-          />
-          <h3>Room Addition</h3>
-        </div>
-        <div id="proj3">
-          <img
-            src="https://s3-production.bobvila.com/blogs/wp-content/uploads/2013/06/attic-conversion.jpg"
-            alt=""
-          />
-          <h3>Attic Transformation</h3>
-        </div>
-      </ProjectsContainer>
+      <ProjectsContainer id="projects">{renderProjects()}</ProjectsContainer>
     </Container>
   );
 }
 
 const Container = styled.div`
   display: flex;
-  height: 70vh;
   margin-top: 10vh;
   background-color: #b76f20;
   box-shadow: 0 2px 12px black;
 `;
 
+const fadeIn = keyframes`
+  from {
+    opacity: 0
+  }
+  to {
+    opacity: 1
+  }
+`;
+
 const ProjectsContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   text-align: center;
-  & div {
-    width: 30%;
-    color: white;
-  }
+  margin: 30px 0;
+`;
+
+const SingleProject = styled.div`
+  opacity: 0;
+  animation: ${(p) => (p.visible ? fadeIn : "")} ease-out forwards;
+  animation-duration: ${(p) => p.randomNumber + "ms"};
+  width: 30%;
+  color: white;
+  margin: 30px 0;
   & img {
     max-width: 100%;
     border-radius: 20px;
