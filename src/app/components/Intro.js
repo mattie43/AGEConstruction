@@ -43,6 +43,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   height: 100vh;
+  box-shadow: 0 2px 12px black;
 `;
 
 const Body = styled.div`

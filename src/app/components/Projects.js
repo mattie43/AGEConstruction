@@ -36,6 +36,7 @@ const Container = styled.div`
   height: 70vh;
   margin-top: 10vh;
   background-color: #b76f20;
+  box-shadow: 0 2px 12px black;
 `;
 
 const ProjectsContainer = styled.div`

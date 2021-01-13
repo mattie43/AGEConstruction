@@ -51,6 +51,7 @@ const Container = styled.div`
   margin-top: 10vh;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 2px 12px black;
   & h1 {
     color: white;
   }

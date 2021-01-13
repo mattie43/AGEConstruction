@@ -28,6 +28,7 @@ const Container = styled.div`
   background-color: #5d2906;
   align-items: center;
   justify-content: space-around;
+  box-shadow: 0 2px 12px black;
   & img {
     max-height: 65%;
     margin: 20px;

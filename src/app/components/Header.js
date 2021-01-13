@@ -116,12 +116,12 @@ const Container = styled.div`
       url(${background});
     background-size: cover;
     background-position: center;
-    animation: ${(p) => (p.transparent ? removeImg : addImg)} 200ms linear
+    animation: ${(p) => (p.transparent ? removeImg : addImg)} 300ms ease-out
       forwards;
   }
   & #logo {
     max-height: 120%;
-    animation: ${(p) => (p.transparent ? grow : shrink)} 100ms linear forwards;
+    animation: ${(p) => (p.transparent ? grow : shrink)} 200ms ease-out forwards;
     align-self: flex-start;
     margin: 10px 30px;
     z-index: 6;
@@ -134,8 +134,8 @@ const Container = styled.div`
       font-size: 35px;
       /* transform: translateY(10px); */
       margin-top: 10px;
-      animation: ${(p) => (p.transparent ? growWords : shrinkWords)} 100ms
-        linear forwards;
+      animation: ${(p) => (p.transparent ? growWords : shrinkWords)} 200ms
+        ease-out forwards;
       letter-spacing: -1px;
     }
   }
