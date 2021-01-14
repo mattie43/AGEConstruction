@@ -38,16 +38,25 @@ export default function Projects() {
 
   return (
     <Container>
-      <ProjectsContainer id="projects">{renderProjects()}</ProjectsContainer>
+      <h1>What We've Done</h1>
+      <div>
+        <ProjectsContainer id="projects">{renderProjects()}</ProjectsContainer>
+      </div>
     </Container>
   );
 }
 
 const Container = styled.div`
   display: flex;
+  flex-direction: column;
   margin-top: 10vh;
   background-color: #b76f20;
   box-shadow: 0 2px 12px black;
+  text-align: center;
+  & h1 {
+    margin-top: 30px;
+    color: white;
+  }
 `;
 
 const fadeIn = keyframes`
