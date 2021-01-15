@@ -19,6 +19,7 @@ export default function Contact() {
           <p className="contact-titles">Call us at:</p>
           <p>1-917-681-4822</p>
           <p>1-917-681-4825</p>
+          <p>test</p>
         </div>
       </InnerDiv>
     </Container>
